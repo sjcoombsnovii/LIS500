@@ -16,6 +16,7 @@ body {
   min-height: 75vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 header {
@@ -34,17 +35,22 @@ header {
   justify-content: center;
 }
 
+/*footer*/
 .content-wrapper {
   display: flex;
   min-height: calc(100vh - var(--header-height));
   margin-top: var(--header-height);
 }
 
+/*nav bar*/
 nav {
   background-color: var(--baby-blue);
   color: white;
-  width: var(--sidebar-width);
+  width: 10rem;
   padding-top: 2rem;
+  /*adding so the sidebar moves with scroll*/
+  position: fixed;
+  height: 100%;
 }
 
 nav ul {
@@ -78,13 +84,15 @@ nav ul li a.hello {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(3,1fr);
-  padding: 1rem;
+  padding: 3rem;
   gap: 1rem;
+  /*had to add padding in order to fix the nav bar*/
+  padding-left: 13rem;
 }
 
 section {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 50px;
   padding: 2rem;
   flex: 1;
   display: flex;
@@ -147,6 +155,8 @@ section h2 {
 main {
   flex-direction: column;
   align-items: stretch;
+  padding: 1rem;
+  padding-left: 11rem;
 }
 
 section {
@@ -249,6 +259,7 @@ footer {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--baby-blue);
+  padding-left: 12rem;
 }
 
 .team-member:last-child {
