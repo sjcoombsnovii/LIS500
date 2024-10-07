@@ -213,6 +213,7 @@ footer {
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
+  flex-direction: row;
 }
 
 .hero-image img {
@@ -230,15 +231,37 @@ footer {
   margin-bottom: 1rem;
 }
 
+#achievements {
+  display: flex;
+  gap: 40px;
+  flex-direction: row;
+}
+
+.video-container-hero {
+  position: relative;
+  padding-bottom: 60%; /* tested percentage until it looked good. */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/*adding the video into same card as achievements*/
+.achieve, .hero-interview {
+  flex: 1;
+}
+
 #achievements ul {
   list-style-type: none;
   padding-left: 0;
+  
 }
 
 #achievements ul li {
   margin-bottom: 0.5rem;
   padding-left: 1.5rem;
   position: relative;
+  
 }
 
 #achievements ul li::before {
@@ -252,6 +275,7 @@ footer {
 
 
 
+
 /* About Us Page Specific Styles */
 .team-member {
   display: flex;
@@ -260,6 +284,7 @@ footer {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--baby-blue);
+  flex-direction: row;
 }
 
 .team-member:last-child {
@@ -302,6 +327,5 @@ footer {
 .team-member-link a:hover {
   color: var(--salmon);
 }
-
 
 
