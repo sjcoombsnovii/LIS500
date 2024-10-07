@@ -157,6 +157,8 @@ main {
   align-items: stretch;
   padding: 1rem;
   padding-left: 11rem;
+  /*adding padding to top of pages to add a more uniform & clean feel*/
+  padding-top: 3rem;
 }
 
 section {
