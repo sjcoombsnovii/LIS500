@@ -1,6 +1,8 @@
 /*card style originally from google merch shop (https://shop.merch.google/?srsltid=AfmBOoq1QzAPQyeUwZ-7ZRaqt_Nv1S0pemLIZjMr4rXvPdi9oBhrRnVz)*/
 /*used stack overflow frequently for support*/
-/* Global Styles */
+
+/*global styles */
+/* selected fun colors that would stand out */
 :root {
   --salmon: #FA8072;
   --baby-blue: #89CFF0;
@@ -20,7 +22,7 @@ body {
   flex-direction: column;
   width: 100%;
 }
-
+/*added our own custom image to the header*/
 header {
   background-color: var(--salmon);
   color: white;
@@ -64,6 +66,8 @@ nav ul li {
   padding: 1rem;
 }
 
+/*used this navigation information from a previous work of one of the team members on a software project*/
+/*changed the hover display, and the colors, as well as rounded our corners for a more fun and modern feel*/
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -73,7 +77,7 @@ nav ul li a {
   transition: background-color 0.3s;
 }
 
-
+/*adding faint color change when icon is hovered over before clicking*/
 nav ul li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -81,7 +85,8 @@ nav ul li a:hover {
 nav ul li a.hello {
   background-color: var(--salmon);
 }
-
+/*card format used from google merch shop - inspired a lot of the shapes used in website, but changed 
+axis and size and colors*/
 .index-main {
   flex-grow: 1;
   display: grid;
@@ -109,7 +114,7 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-
+/*making sure the custom drawings fit correctly on the card - a lot of trial and error to be honest*/
 @media (max-width: 768px) {
   .content-wrapper {
       flex-direction: column;
@@ -153,7 +158,8 @@ section h2 {
   }
 }
 
-/* Resource Guide Specific Styles */
+/* resources page */
+/*once again inspired from google merch shop, but made them horizontal*/
 main {
   flex-direction: column;
   align-items: stretch;
@@ -172,6 +178,7 @@ section h2 {
   padding-bottom: 0.5rem;
 }
 
+/*this was a lot of guessing, I am not sure I quite understood how this was happening, stack overflow came in use here*/
 .video-container {
   position: relative;
   padding-bottom: 25%; /* tested percentage until it looked good. */
@@ -181,6 +188,7 @@ section h2 {
   margin: 1rem 0;
 }
 
+/*halfway through found out flex was the best way to display and manipulate for us*/
 .gif-container {
   display: flex;
   gap: 20px;
@@ -219,7 +227,7 @@ footer {
 }
 
 
-/* Tech Hero Page Specific Styles */
+/*hero page*/
 .tech-hero {
   display: flex;
   align-items: flex-start;
@@ -228,6 +236,7 @@ footer {
   flex-direction: row;
 }
 
+/*made the images circular to differ from the rectangles, wanted more shape variation*/
 .hero-image img {
   border-radius: 50%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -249,6 +258,7 @@ footer {
   flex-direction: row;
 }
 
+/*this was very confusing and it was cutting the video off, so I just copied and renamed and then changed the padding*/
 .video-container-hero {
   position: relative;
   padding-bottom: 60%; /* tested percentage until it looked good. */
@@ -294,7 +304,11 @@ footer {
 }
 
 
-/* About Us Page Specific Styles */
+/*about us */
+/*similar to the hero page*/
+/* We did take the suggestion of a classmate and moved the words next to the circle images
+it looks more filled, but is white space better? It helped a lot on the hero page because there was a lot
+but here it could maybe have been okay with the extra white space for a cleaner look. */
 .team-member {
   display: flex;
   align-items: flex-start;
@@ -302,6 +316,7 @@ footer {
   margin-bottom: 3rem;
   padding-bottom: 2rem;
   border-bottom: 1px solid var(--baby-blue);
+  /*here is where we changed the flex display to rows so the text was next to image*/
   flex-direction: row;
 }
 
@@ -345,3 +360,4 @@ footer {
 .team-member-link a:hover {
   color: var(--salmon);
 }
+
