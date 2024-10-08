@@ -179,6 +179,16 @@ section h2 {
   margin: 1rem 0;
 }
 
+.gif-container {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
 #resources ul {
   list-style-type: none;
   padding-left: 0;
@@ -273,7 +283,13 @@ footer {
   top: -0.2em;
 }
 
-
+.hero-main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  padding: 1rem;
+  gap: 1rem;
+}
 
 
 /* About Us Page Specific Styles */
@@ -327,5 +343,3 @@ footer {
 .team-member-link a:hover {
   color: var(--salmon);
 }
-
-
