@@ -23,6 +23,7 @@
             <ul>
                 <li><a href="index.html" class="hello">Home</a></li>
                 <li><a href="#introduction">What is a Teachable Machine?</a></li>
+                <li><a href="#key features">Key Features</a></li>
                 <li><a href="#rps">Why Rock, Paper, Scissors?</a></li>
                 <li><a href="#use-teachable-machine">Use Our Machine!</a></li>
                 <li><a href="#more">More Information about Our Machine.</a></li>
@@ -30,23 +31,39 @@
             </ul>
         </nav>
         <main>
-            <!-- Intro to implicit bias with intro video-->
+            <!-- Intro to our teachable machine-->
             <section id="introduction">
                 <h2>What is a Teachable Machine?</h2>
-                <p>Add definition here.</p>
+                <p>Teachable Machine is a web-based tool by Google designed to make machine learning (ML) accessible to everyone, regardless of technical expertise. It allows users to create custom classification models for tasks like recognizing images, sounds, and poses without coding.</p>
                 <div class="video-container">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/T2qQGqZxkD0?si=-ieOTGJC0IDdh8H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
-                <!--Deep dive done by the team on how to think about implicit bias when you are interacting with others-->
+                <!--explaining why these machines are important-->
                 <h2>Why do you care about teachable machines?</h2>
-                <p>Explain how machine learning is relevant </p>
-                <div class="achieve">
-                    <ul>
-                     <li>bullet</li>
-                     <li>bullet</li>
-                     <li>bullet</li>
-                     </ul>
-                </div>
+                <p>Teachable Machine is an important tool because it democratizes access to machine learning, empowering individuals, educators, artists, and small businesses to engage with AI without requiring specialized technical skills. By providing an intuitive platform for training models that recognize images, sounds, and poses, it fosters innovation and creativity across diverse fields. In education, it allows students to explore AI concepts interactively, making learning more engaging and relevant. For creators and entrepreneurs, it enables rapid prototyping and experimentation, opening new possibilities for interactive projects, accessibility tools, and user-centric designs. Furthermore, by lowering the barriers to AI, Teachable Machine encourages inclusivity, allowing underrepresented groups and smaller organizations to participate in shaping technology. As AI becomes a cornerstone of modern life, tools like this ensure broader participation, enhance technological literacy, and enable communities worldwide to leverage AI for societal benefit.</p>
+                
+            </section>
+            <!--Adding a key features section of the teachable machine-->
+            <section id="key features">
+                <h2>Key Features</h2>
+                <p>Ease of Use:</p>
+                <ul>
+                    <li>A simple graphical user interface enables users to build models in a matter of minutes by providing training data (images, audio, or poses).</li>
+                </ul>
+                <p>Support for Classification Tasks:</p>
+                <ul>
+                    <li>Image Classification: Detect and classify objects or scenes.</li>
+                    <li>Audio Classification: Recognize sounds or speech patterns.</li>
+                    <li>Pose Detection: Detect and classify body poses or movements.</li>
+                </ul>
+                <p>How it works:</p>
+                <ul>
+                    <li>Gather Data: Collect images, sounds, or pose data through uploads or live input.</li>
+                    <li>Train the Model: Assign data to classes (e.g., "cat" vs. "dog") and let the tool train the model.</li>
+                    <li>Test the Model: Validate its accuracy with new data.</li>
+                    <li>Use the Model: Export or deploy the trained model for real-world use.</li>
+                </ul>
+               
             </section>
 
             <section id="rps">
@@ -58,95 +75,116 @@
                 </div>
             </section>
 
-            <section id="use-teachable-machine">
-                <!-- Adding in the Java Script that came from the teachable machine website to be able to use on our website.-->
+           
+           
+            <main class="resources-main">
+                <section id="use-teachable-machine">
+                    <!-- Adding in the Java Script that came from the teachable machine website to be able to use on our website.-->
                 <h2>Use Our Teachable Machine!</h2>
                 <p>Using a blank background, but your hands up & show rock, paper, or scissors to play!</p>
-                <!--adding in our teachable machine to this card!-->
-                <div>Press Start to Begin.</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
-<script type="text/javascript">
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-    // the link to your model provided by Teachable Machine export panel
-    const URL = "https://teachablemachine.withgoogle.com/models/9a6umZfl9/";
-
-    let model, webcam, labelContainer, maxPredictions;
-
-    // Load the image model and setup the webcam
-    async function init() {
-        const modelURL = URL + "model.json";
-        const metadataURL = URL + "metadata.json";
-
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
-        model = await tmImage.load(modelURL, metadataURL);
-        maxPredictions = model.getTotalClasses();
-
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
-        }
-    }
-
-    async function loop() {
-        webcam.update(); // update the webcam frame
-        await predict();
-        window.requestAnimationFrame(loop);
-    }
-
-    // run the webcam image through the image model
-    async function predict() {
-        // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-        }
-    }
-</script>
                 
-            </section>
 
+                <!--adding in our teachable machine to this card!-->
+                <p> </p>
+                <p>Press Start to Begin.</p>
+                <button type="button" onclick="init()">Start</button>
+                <div id="webcam-container"></div>
+                <div id="label-container"></div>
+                <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+                <script type="text/javascript">
+                // More API functions here:
+                // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+                // the link to your model provided by Teachable Machine export panel
+                const URL = "https://teachablemachine.withgoogle.com/models/9a6umZfl9/";
+
+                let model, webcam, labelContainer, maxPredictions;
+
+                // Load the image model and setup the webcam
+                async function init() {
+                    const modelURL = URL + "model.json";
+                    const metadataURL = URL + "metadata.json";
+
+                // load the model and metadata
+                // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                 // or files from your local hard drive
+                 // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                 model = await tmImage.load(modelURL, metadataURL);
+                 maxPredictions = model.getTotalClasses();
+
+                 // Convenience function to setup a webcam
+                 const flip = true; // whether to flip the webcam
+                webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+                await webcam.setup(); // request access to the webcam
+                await webcam.play();
+                window.requestAnimationFrame(loop);
+
+                // append elements to the DOM
+                 document.getElementById("webcam-container").appendChild(webcam.canvas);
+                labelContainer = document.getElementById("label-container");
+                for (let i = 0; i < maxPredictions; i++) { // and class labels
+                    labelContainer.appendChild(document.createElement("div"));
+                }
+                }
+
+                async function loop() {
+                    webcam.update(); // update the webcam frame
+                    await predict();
+                    window.requestAnimationFrame(loop);
+                }
+
+                // run the webcam image through the image model
+                async function predict() {
+                    // predict can take in an image, video or canvas html element
+                    const prediction = await model.predict(webcam.canvas);
+                    for (let i = 0; i < maxPredictions; i++) {
+                        const classPrediction =
+                            prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                            labelContainer.childNodes[i].innerHTML = classPrediction;
+                    }
+                }
+            </script>
+                </section>
+                <section id="ourmachine">
+                   <!--Adding Youtube Short (via a workaround from: https://docs.document360.com/docs/embed-youtube-shorts) of our Machine-->
+                <iframe width="315" height="560" 
+                src="https://youtube.com/embed/cgeEMBYKHGY?feature=shared" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media;
+                gyroscope; picture-in-picture;
+                web-share"
+                allowfullscreen>
+            </iframe>
+                </section>
+            </main>
+        
             <section id="more">
                 <!-- How can other's teach & learn intersectionality, what is still needed in the community? -->
                 <h2>Examples of Using Our Machine</h2>
-                <p>add video, and screenshots of machine</p>
+                <div class="hero-image">
+                    <img src="Data.png" width="1000" height="250">
+                </div>
                 <div class="achieve">
                     <ul>
-                     <li>Educational Institutions: Schools and universities can integrate intersectionality into curriculums to educate students on the significance of interconnected identities. Programs and discussions can help young people understand their own identities and those of others.</li>
-                     <li>Policy Advocacy: Addressing intersectional discrimination in policy is so important. This could include programs for minority groups, healthcare reforms to tackle systemic bias, or workplace policies that ensure equitable treatment for individuals from various backgrounds.</li>
-                     <li>Media Representation: Continued representation in films, music, and literature can challenge stereotypes and highlight diverse experiences. Social media has also become a powerful platform for individuals to share their stories, create community awareness, and push for changes.</li>
+                     <li>Education: A practical way to introduce students to AI and machine learning.</li>
+                     <li>Prototyping: Test AI ideas before full-scale implementation.</li>
+                     <li>Accessibility Solutions: Build gesture or voice-controlled interfaces.</li>
+                     <li>Creative Projects: Develop interactive art installations.</li>
                      </ul>
                 </div>
                 
             </section>
+            
 
             <section id="resources">
                 <!-- Extra resources & sources for our research -->
                 <h2>Additional Resources</h2>
                 <ul>
-                    <li><a href="https://medium.com/this-is-hard/ffffff-diversity-1bd2b3421e8a" target="_blank">FFFFFF Diversity: The Unbearable Whiteness of Design</a></li>
-                    <li><a href="https://www.tandfonline.com/doi/full/10.1080/00064246.2017.1330107" target="_blank">Implicit Bias and the Idealized Rational Self</a></li>
-                    <li><a href="https://diversity.nih.gov/sociocultural-factors/implicit-bias" target="_blank">NIH: Implicit Bias</a></li>
-                    <li><a href="https://kirwaninstitute.osu.edu/implicit-bias-101" target="_blank">Kirwan Institute: Implicit Bias 101</a></li>
+                    <li><a href="http://research.google/pubs/teachable-machine-approachable-web-based-tool-for-exploring-machine-learning-classification/" target="_blank">Google Research: "Teachable Machine: Approachable Web-Based Tool" – Explains the rationale and design goals behind Teachable Machine.</a></li>
+                    <li><a href="https://teachablemachine.withgoogle.com/faq" target="_blank">Teachable Machine FAQ: "How does Teachable Machine work?" – Official FAQ detailing its functionality and use cases.</a></li>
+                    <li><a href="https://www.pluralsight.com/resources/blog/guides/getting-started-with-google-teachable-machine" target="_blank">Pluralsight Blog: "Getting Started with Teachable Machine" – Provides a step-by-step guide to using Teachable Machine effectively.</a></li>
+                    <li><a href="https://www.commonsense.org/education/reviews/teachable-machine" target="_blank">Common Sense Education Review: "Teachable Machine Review for Teachers" – Analyzes the tool's utility in educational settings, highlighting its strengths and limitations.</a></li>
                     <li><a href="https://www.verywellmind.com/implicit-bias-overview-4178401" target="_blank">How Does Implicit Bias Influence Behavior?</a></li>
                 </ul>
             </section>

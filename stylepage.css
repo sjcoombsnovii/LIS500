@@ -45,6 +45,28 @@ header > *:nth-child(3) {
   margin-right: 2rem;
 }
 
+/*adding in how I wanted the Start button to look*/
+button {
+  background-color: #89CFF0;
+  color: black;
+  padding: 10px 15px;
+  text-align: center;
+  width: 100px;
+  display: block;
+  border: none;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #000080;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  width: 100px;
+  display: block;
+  border: none;
+  border-radius: 10px;
+}
 
 /*footer*/
 .content-wrapper {
@@ -97,11 +119,30 @@ axis and size and colors*/
 .index-main {
   flex-grow: 1;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   padding: 3rem;
   gap: 1rem;
   /*had to add padding in order to fix the nav bar*/
-  padding-left: 13rem;
+  padding-left: 12rem;
+}
+
+.resources-main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.about-main {
+  flex-grow: 1;
+  display: grid;
+  /*used stack overflow to adjust this as auto*/
+  /*pretty excited about how it looked*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 1rem;
+  gap: 1rem;
+  
 }
 
 section {
@@ -111,7 +152,7 @@ section {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: flex-start;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -161,7 +202,7 @@ section h2 {
 
   nav ul li {
       flex: 1 1 50%;
-      text-align: center;
+      text-align: left;
   }
 }
 
@@ -183,6 +224,7 @@ section h2 {
   color: var(--navy-blue);
   border-bottom: 2px solid var(--navy-blue);
   padding-bottom: 0.5rem;
+  align-items: center;
 }
 
 /*this was a lot of guessing, I am not sure I quite understood how this was happening, stack overflow came in use here*/
@@ -245,7 +287,7 @@ footer {
 
 /*made the images circular to differ from the rectangles, wanted more shape variation*/
 .hero-image img {
-  border-radius: 50%;
+  border-radius: 0%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -312,10 +354,8 @@ footer {
 
 
 /*about us */
-/*similar to the hero page*/
-/* We did take the suggestion of a classmate and moved the words next to the circle images
-it looks more filled, but is white space better? It helped a lot on the hero page because there was a lot
-but here it could maybe have been okay with the extra white space for a cleaner look. */
+/* We did take the suggestion of a classmate and moved the words next to the circle images*/
+/*also created a new layout for the images and made them next to each other since there is only 2 of us*/
 .team-member {
   display: flex;
   align-items: flex-start;
@@ -330,12 +370,13 @@ but here it could maybe have been okay with the extra white space for a cleaner 
 .team-member:last-child {
   border-bottom: none;
 }
-
+/*decreased image size*/
 .team-member-image {
-  width: 300px;
-  height: 300px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 50%;
+  margin-bottom: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
