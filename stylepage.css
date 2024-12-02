@@ -4,7 +4,6 @@
 /*global styles */
 /* selected fun colors that would stand out */
 :root {
-  --salmon: #FA8072;
   --baby-blue: #89CFF0;
   --navy-blue: #000080;
   --light-bg: #F5F5F5;
@@ -25,7 +24,7 @@ body {
 /*added our own custom image to the header*/
 
 header {
-  background-color: var(--salmon);
+  background-color: var(--baby-blue);
   color: white;
   text-align: center;
   padding: 1rem;
@@ -91,7 +90,7 @@ nav ul li a:hover {
 }
 
 nav ul li a.hello {
-  background-color: var(--salmon);
+  background-color: var(--navy-blue);
 }
 /*card format used from google merch shop - inspired a lot of the shapes used in website, but changed 
 axis and size and colors*/
@@ -182,7 +181,7 @@ section {
 
 section h2 {
   color: var(--navy-blue);
-  border-bottom: 2px solid var(--salmon);
+  border-bottom: 2px solid var(--navy-blue);
   padding-bottom: 0.5rem;
 }
 
@@ -223,7 +222,7 @@ section h2 {
 }
 
 #resources ul li a:hover {
-  color: var(--salmon);
+  color: var(--navy-blue);
 }
 
 footer {
@@ -256,7 +255,7 @@ footer {
 
 .hero-title {
   font-size: 1.2rem;
-  color: var(--salmon);
+  color: var(--navy-blue);
   margin-bottom: 1rem;
 }
 
@@ -296,7 +295,7 @@ footer {
 
 #achievements ul li::before {
   content: '•';
-  color: var(--salmon);
+  color: var(--navy-blue);
   font-size: 1.5em;
   position: absolute;
   left: 0;
@@ -351,7 +350,7 @@ but here it could maybe have been okay with the extra white space for a cleaner 
 
 .team-member-title {
   font-size: 1.1rem;
-  color: var(--salmon);
+  color: var(--navy-blue);
   margin-bottom: 1rem;
 }
 
@@ -366,6 +365,6 @@ but here it could maybe have been okay with the extra white space for a cleaner 
 }
 
 .team-member-link a:hover {
-  color: var(--salmon);
+  color: var(--navy-blue);
 }
 
