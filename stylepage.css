@@ -1,8 +1,10 @@
 /*card style originally from google merch shop (https://shop.merch.google/?srsltid=AfmBOoq1QzAPQyeUwZ-7ZRaqt_Nv1S0pemLIZjMr4rXvPdi9oBhrRnVz)*/
 /*used stack overflow frequently for support*/
+/*added a lot of changes (color, additional card box options, button css, etc.) more detail in comments below*/
 
 /*global styles */
 /* selected fun colors that would stand out */
+
 :root {
   --baby-blue: #89CFF0;
   --navy-blue: #000080;
@@ -46,6 +48,7 @@ header > *:nth-child(3) {
 }
 
 /*adding in how I wanted the Start button to look*/
+/* easier than expected, used W3 schools for help*/
 button {
   background-color: #89CFF0;
   color: black;
@@ -125,15 +128,17 @@ axis and size and colors*/
   /*had to add padding in order to fix the nav bar*/
   padding-left: 12rem;
 }
-
+/*wanted to specify how to align the resources page with our video*/
 .resources-main {
   flex-grow: 1;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /*padding changed on these pages, not quite sure why, but it looked too off centered before decreasing*/
   padding: 1rem;
   gap: 1rem;
 }
 
+/*made a new main to have our profiles next to each other, looked to blank horizontally*/
 .about-main {
   flex-grow: 1;
   display: grid;
@@ -206,7 +211,7 @@ section h2 {
   }
 }
 
-/* resources page */
+/* teachable machine page */
 /*once again inspired from google merch shop, but made them horizontal*/
 main {
   flex-direction: column;
@@ -237,16 +242,6 @@ section h2 {
   margin: 1rem 0;
 }
 
-/*halfway through found out flex was the best way to display and manipulate for us*/
-.gif-container {
-  display: flex;
-  gap: 20px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 
 #resources ul {
   list-style-type: none;
@@ -267,6 +262,7 @@ section h2 {
   color: var(--navy-blue);
 }
 
+/*I do not understand the white box by the footer - if anyone is reading this in draft, let me know suggestions*/
 footer {
   background-color: var(--navy-blue);
   color: white;
@@ -276,30 +272,13 @@ footer {
 }
 
 
-/*hero page*/
-.tech-hero {
-  display: flex;
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-direction: row;
-}
 
-/*made the images circular to differ from the rectangles, wanted more shape variation*/
-.hero-image img {
+/*display of data image*/
+.data-image img {
   border-radius: 0%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.hero-info h2 {
-  margin-bottom: 0.5rem;
-}
-
-.hero-title {
-  font-size: 1.2rem;
-  color: var(--navy-blue);
-  margin-bottom: 1rem;
-}
 
 #achievements {
   display: flex;
@@ -307,20 +286,7 @@ footer {
   flex-direction: row;
 }
 
-/*this was very confusing and it was cutting the video off, so I just copied and renamed and then changed the padding*/
-.video-container-hero {
-  position: relative;
-  padding-bottom: 60%; /* tested percentage until it looked good. */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  margin: 1rem 0;
-}
 
-/*adding the video into same card as achievements*/
-.achieve, .hero-interview {
-  flex: 1;
-}
 
 #achievements ul {
   list-style-type: none;
@@ -344,16 +310,8 @@ footer {
   top: -0.2em;
 }
 
-.hero-main {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: repeat(2,2fr);
-  padding: 1rem;
-  gap: 1rem;
-}
 
-
-/*about us */
+/* reflection page */
 /* We did take the suggestion of a classmate and moved the words next to the circle images*/
 /*also created a new layout for the images and made them next to each other since there is only 2 of us*/
 .team-member {
