@@ -50,8 +50,8 @@
         }
 
         // Draw the emoji
-        textSize(256);
-        text(emoji, width / 2, height / 2);
+        textSize(40);
+        text(emoji, width / 1.6, height / 1.04);
     }
 
     // STEP 3: Get the classification!
