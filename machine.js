@@ -6,7 +6,7 @@
     let label = "waiting...";
     // The classifier
     let classifier;
-    let modelURL = 'https://teachablemachine.withgoogle.com/models/9a6umZfl9/';
+    let modelURL = 'https://teachablemachine.withgoogle.com/models/xxQ81TTRu/';
 
     // STEP 1: Load the model!
     function preload() {
